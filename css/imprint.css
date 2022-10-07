@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0px;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    margin-bottom: 0px;
+    margin-top: 2.5px;
+}
+
+.div-position {
+    padding: 30px 30px 30px 220px;
+}
+
+.active {
+    background-color: white !important;
+    color: black !important;
+    right: -7px !important;
+}
+
+@media (max-width: 800px) {
+    .div-position {
+        padding: 30px 30px 30px 30px;
+    }
+}

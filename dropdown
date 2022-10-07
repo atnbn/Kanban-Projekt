@@ -1,0 +1,48 @@
+<div class="bg-board">
+        <div class="flex-container">
+            TO DO
+            <div class="task-area">
+                <div class="board-discription">
+                    To do
+                </div>
+                <div class="div-ticket" id="boardColumnToDo" ondrop="moveTo('todo')" ontouchstart="allowDrop(event)"
+                    ondragover="allowDrop(event)"> </div>
+            </div>
+            <!-- IN PROGRESS -->
+            <div class="task-area">
+                <div class="board-discription">
+                    In Progress
+                </div>
+                <div class="div-ticket" id="boardColumnInProgress" ondrop="moveTo('inProgress')"
+                    ondragover="allowDrop(event)" ontouchstart="allowDrop(event)"></div>
+            </div>
+            <!-- CODE REVIEW -->
+            <div class="task-area">
+                <div class="board-discription">
+                    Code Review
+                </div>
+                <div class="div-ticket" id="boardColumnCodeReview" ontouchstart="allowDrop(event)"
+                    ondrop="moveTo('codeReview')" ondragover="allowDrop(event)"></div>
+            </div>
+            <!-- DONE -->
+            <div class="task-area">
+                <div class="board-discription">
+                    Done
+                </div>
+                <div class="div-ticket" id="boardColumnDone" ontouchstart="allowDrop(event)" ondrop="moveTo('done')"
+                    ondragover="allowDrop(event)"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    // //      <tr id="id-tr">
+        // <td style="display:flex; align-items: center"><img class="img-profilePicture" src="${Member['img']}">${Member['name']}</td>
+        // <td><img onclick="select(${i})" id="id-add${i}" class="img-add" src="img/plus.png"></td>
+        // </tr>

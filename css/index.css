@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+}
+
+input {
+    padding: 10px;
+    outline: none;
+}
+
+.img-logo {
+    margin-bottom: 50px;
+}
+
+.active {
+    background-color: white !important;
+    color: black !important;
+    right: -7px !important;
+}
+.d-none {
+    display: none;
+}
+
+.div-background {
+    background-color:#3634C9;
+    border-radius: 20px;
+    height: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    display:flex;
+    box-shadow: 0px 0px 10px 0px black;
+    text-align: center;
+}
+
+.div-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-text {
+    display:flex;
+    flex-direction:column; 
+    text-align: center; 
+    align-items: center; 
+    margin-bottom: 30px;
+}
+
+.div-login {
+    cursor:pointer;
+    width:75%; 
+    text-align:center; 
+    padding: 10px; 
+    margin: 20px 0px;
+    background-color: white; 
+    font-weight: bold; 
+    color: grey; 
+    border-radius: 10px;
+    font-size: 15px;
+    letter-spacing: 3px;
+}
+
+.div-login:hover {
+    opacity: 0.75;
+}
+
+.div-input {
+    width:100%; 
+    border-radius: 10px; 
+    margin: 2px;
+}
+
+.text-backToLogin {
+    color: white;
+    padding: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+}
+
+@media (max-width: 556px) {
+    .div-background {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 440px) {
+    .div-background {
+        width: 70%;
+    }
+}
+
+@media (max-height: 630px) {
+    .div-background {
+        height: 80%;
+    }
+
+    .img-logo {
+        margin-top: 20px;
+    }
+}
+
+@media (max-height: 550px) {
+    .img-logo {
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-height: 520px) {
+    .div-text {
+        margin-bottom: 20px;
+    }
+
+    .img-logo {
+        display: none;
+    }
+}
+
+@media (max-height: 410px) {
+    .div-login {
+        margin: 10px 0px 0px 0px;
+    }
+}

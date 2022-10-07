@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoinKanban</title>
+
+    <!-- ICON TO BROWSER TAB -->
+    <link rel="shortcut icon" href="img/joinlogo.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/sidebarcss.css">
+    <link rel="stylesheet" href="css/backlog.css">
+    <!-- FONT -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap">
+
+    <!-- JS -->
+    <script src="js/sidebar.js"></script>
+    <script src="js/backlog.js"></script>
+    <!-- Backend -->
+    <script src="./js/mini_backend.js"></script>
+    <script src="./js/script.js"></script> <!-- extra file for clarity -->
+</head>
+
+<body id="id-body" onload="init()">
+    
+    <div class="background-container" id="background-container"></div>
+    <div class="info-box" id="info-box">
+    </div>
+    <div w3-include-html="sidebar.html"></div>
+    <img onclick="sidebarFullscreen()" id="id-sidebarFullscreen" class="img-sidebarBtn"
+        style="position: fixed; top: 0; right: 0" src="img/sidebarBtn.png">
+
+    <div class="backlog">
+        <h1 class="title-backlog">Backlog</h1>
+        <p class="title-text">Learning Management System Project</p>
+
+
+
+        <div class="log" id="history-logs">
+            <div class="details">
+                <p class="detail">ASSIGNED TO</p>
+                <p class="detail">CATEGORY</p>
+                <p class="detail">DETAILS</p>
+            </div>
+            <div class="taskRow" id="taskRow">
+
+                <!--
+            <img class="member-pic" src="./img/Profilepicture3.PNG">
+            <div class="name-email">
+
+                <p>Name</p>
+                <p class="email">Email</p>
+            </div>
+            <div class="category">
+                <p class="category1">Category</p>
+            </div>
+            <div class="details-history">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa eum magnam, doloribus at rem
+                    corporis, cupiditate id fuga, ipsum ab recusandae! Cum repudiandae suscipit rem cupiditate alias a
+                    sequi nihil.</p> -->
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="alert" class="alert d-none">
+        YOUR TASK HAS BEEN ADDED
+    </div>
+</body>
+
+</html>

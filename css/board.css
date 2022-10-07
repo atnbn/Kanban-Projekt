@@ -1,0 +1,424 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+    display: flex;
+    overflow-y: hidden;
+
+}
+
+.sidebar-block{
+    height: 100vh;
+    background-color: black;
+    width: 200px;
+}
+
+
+table {
+    border-spacing: 15px 0px;
+    padding: 0px;
+    position: relative;
+}
+
+td {
+    padding: 5px;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+.bg-board {
+    display: flex;
+    height: 100%;
+    margin-left: 210px;
+    overflow-x: auto;
+    flex-wrap: wrap;
+}
+
+.task-area {
+    width: 250px;
+    min-height: 90vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px;
+}
+
+.div-ticket {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.task-fullscreen {
+    display: flex;
+    animation: zoomUp 1s forwards;
+}
+
+@keyframes zoomUp {
+    0% {
+        transition: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+.task-board:hover {
+    cursor: pointer;
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+
+
+}
+
+.active {
+    background-color: white !important;
+    color: black !important;
+    right: -7px !important;
+}
+
+.board-discription {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    width: 100%;
+    background: rgb(36, 36, 158);
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    margin-bottom: 1px;
+}
+
+/* Here starts the styling for the task*/
+.font-style {
+    font-size: 14px;
+
+
+}
+
+.task-name {
+    position: absolute;
+    top: -11px;
+    left: 6px;
+}
+
+.task-title {
+    position: absolute;
+    top: 10px;
+    left: 6px;
+}
+
+.task-date {
+    position: absolute;
+    top: -11px;
+    right: 3px;
+}
+
+
+.task-text {
+    position: absolute;
+    bottom: 42px;
+    left: 7px;
+}
+
+.task-urgency {
+    position: absolute;
+    top: -11px;
+    left: 103px;
+
+}
+
+.div-ticket {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* Here ends the styling*/
+
+/* Styling task in fullscreen */
+
+#taskBoardFullscreen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+}
+
+#taskBoardFullscreen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+}
+
+#popup {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+    background-color: rgb(1, 1, 1, 0.8);
+}
+
+.popup-container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+    width: 500px;
+    position: absolute;
+    border: 4px solid rgb(36, 36, 158);
+}
+
+
+.info-row{
+    display: flex;
+    justify-content: space-around;
+}
+#taskFullscreen-title {
+    color: #24249E;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+.info-container{
+    text-align: center;
+}
+.info-paragraph{
+    font-size: 18px;
+}
+
+
+.close-btn-board {
+    height: 23px;
+    border-radius: 17px;
+    width: 22px;
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    cursor: pointer;
+    text-align: center;
+    color: #273a94 !important;
+    border: 3px solid #273a94 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    border: 3px;
+    background: none;
+    color: #273a94;
+    font-weight: bold;
+}
+
+.close-btn-board:hover {
+    background: #273a94;
+    color: #fff !important;
+}
+
+
+.task-container {
+    position: relative;
+    width: 95%;
+    background-color: rgb(36, 36, 158);
+    margin-bottom: 5px;
+    margin-top: 5px;
+    /* box-shadow: 0 0 20px 8px #d0d0d0; */
+
+}
+
+.task-board {
+    position: relative;
+    background-color: white;
+    width: 100%;
+
+}
+
+.button-container {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* .delete-button {
+    border: 2px solid white;
+    height: 20px;
+    border-radius: 17px;
+    width: 20px;
+    background: none;
+    color: white;
+}
+.move-button{
+    z-index: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    } */
+
+
+.arrow-containers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.move-right-img {
+    height: 20px;
+    width: 20px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    padding: 1px;
+    cursor: pointer;
+    margin-left: 5px;
+
+}
+
+.mirror {
+    transform: scaleX(-1);
+}
+
+.close-img {
+    height: 20px;
+    width: 20px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    cursor: pointer;
+
+}
+
+.task-box {
+    height: 100%;
+
+}
+
+.flex-container {
+    /* height: 100%; */
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+    margin-top: 25px;
+    overflow: auto;
+}
+
+/* .div-ticketsResponsive {
+    
+} */
+
+@media (max-width: 1100px) {
+
+
+    .move-right-img {
+        height: 15px;
+        width: 15px;
+    }
+
+    .close-img {
+        height: 15px;
+        width: 15px;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .bg-board {
+        margin: 0;
+
+    }
+    
+    .task-area {
+        margin: 15px 3px 0px 0px;
+    }
+
+    /* .flex-container {
+        display: flex;
+        margin-top: 36px;
+    } */
+
+    #taskFullscreen {
+        width: 80%;
+    }
+
+}
+
+@media (max-height: 525px) {
+
+
+
+
+    .div-ticket {
+        height: 90%;
+        overflow-y: auto;
+    }
+
+    /*   .div-ticketsResponsive {
+        height: 90%;
+        overflow-y: auto;
+    } */
+}
+
+@media (max-height: 425px) {
+    .div-scrollbox {
+        overflow-y: auto;
+        height: 250px;
+    }
+
+    #taskFullscreen {
+        height: 90%;
+    }
+}

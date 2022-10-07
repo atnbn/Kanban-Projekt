@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+}
+.background-container{
+    background-color: #EBEDFC;
+    border-radius: 10px;
+    padding: 7.5px 20px;
+}
+p {
+    padding: 5px 0px;
+}
+
+h3 {
+    padding: 20px 0px 5px 0px;
+}
+.active {
+    background-color: white !important;
+    color: black !important;
+    right: -7px !important;
+}
+.active {
+    background-color: white !important;
+    color: black !important;
+    right: -7px !important;
+}
+
+.div-position {
+    padding: 20px 30px 0px 220px;
+}
+
+.bg-board-help {
+    display: flex;
+    height: 100vh;
+    margin-left: 150px;
+    color: rgb(66, 64, 64);
+    flex-direction: column;
+    align-items: center;
+}
+
+.headline {
+    height: 50px;
+    width: 900px;
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.explain-picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 32px;
+    margin-left: 32px;
+    background-color: white;
+}
+
+.explain-section {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.explain-container-element {
+    margin-left: 16px;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.help-description-img {
+    object-fit: contain;
+    height: 400px;
+    width: 400px;
+}
+
+.imprint {
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.img-arrowToTop {
+    position: fixed;
+    right: 5px;
+    bottom: 20px;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+.img-arrowToTop:hover {
+    opacity: 0.75;
+}
+
+.font-help {
+    font-size: 30px;
+}
+
+@media (max-width: 600px) {
+    .div-position {
+        padding: 10px 30px 0px 30px;
+    }
+}
+
+@media (max-height: 525px) {
+    .div-position {
+        padding: 0px 30px 0px 30px;
+    }
+
+    .font-help {
+        margin-top: 20px;
+    }
+}
+
+.black{
+    color: black;
+}
