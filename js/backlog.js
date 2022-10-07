@@ -128,7 +128,7 @@ function showPopUpContent(i) {
                 <p class="info-text">Description:</p>
                 <textarea class="info-area" type="text" id="description${i}">${inactiveTasks[i].description}</textarea>
             </div>
-     ----------------------------------------       <div class="info-button__container">
+    <div class="info-button__container">
                 <button class="save-button" onclick="updateUser(${i})">Save</button>
             </div>
         </div>

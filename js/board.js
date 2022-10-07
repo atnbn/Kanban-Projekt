@@ -177,7 +177,6 @@ async function moveTo(category) {
     await saveToBackendTasks();
 }
 
-
 function setID() {
     for (let i = 0; i < allTasks.length; i++) {
         allTasks[i]['id'] = i;
@@ -195,13 +194,21 @@ async function deleteTask(id) {
 function openPopup(id) {
     let task = allTasks.find(t => t.id === id);
     let pos = allTasks.indexOf(task);
-    document.getElementById('taskFullscreen-title').innerHTML = 'Title:  ' + allTasks[pos].title;
-    document.getElementById('taskFullscreen-date').innerHTML = 'Due to: ' + allTasks[pos].date;
-    document.getElementById('taskFullscreen-category').innerHTML = 'Category: ' + allTasks[pos].category;
-    document.getElementById('taskFullscreen-assignment').innerHTML = 'Assigned to: ' + allTasks[pos].assignment[0].name;
-    document.getElementById('taskFullscreen-urgency').innerHTML = 'Urgency: ' + allTasks[pos].urgency;
-    document.getElementById('taskFullscreen-description').innerHTML = 'Task description: ' + allTasks[pos].description;
+    let content = document.getElementById('info-box');
     document.getElementById('popup').style.display = 'flex';
+    content.innerHTML = loadPopUpContent(pos)
+}
+
+function updateUser(i) {
+    let category = document.getElementById('category' + i).value
+    let urgency = document.getElementById('urgency' + i).value;
+    let description = document.getElementById('description' + i).value;
+    allTasks[i].category = category;
+    allTasks[i].urgency = urgency;
+    allTasks[i].description = description;
+    saveToBackendTasks();
+    closePopup();
+    updateHTML();
 }
 
 function closePopup() {
@@ -244,19 +251,18 @@ function removeResponsivMenu() {
     document.getElementById('id-sidebarFullscreen').style.display = 'none';
 }
 
-function showPopUpContent(i) {
-    let content = document.getElementById('info-box');
-    content.innerHTML = `
+function loadPopUpContent(pos) {
+    return `
         <div class="info-container">
-            <button class="close-button" onclick="hideInfo()">X</button>
+            <button class="close-button" onclick="closePopup()">X</button>
             <div class="info-header">
                 <p class="info-text">Name:</p>
-                <span class="info-text">${inactiveTasks[i].assignment}</span>
+                <span class="info-text">${allTasks[pos].assignment}</span>
             </div>
             <div class="info-header">
                 <p class="info-text">Category:</p>
-                <select id="id-category${i}" class="div-fillIns" required>
-                    <option hidden selected>${inactiveTasks[i].category}</option>
+                <select id="category${pos}" class="div-fillIns" required>
+                    <option hidden selected>${allTasks[pos].category}</option>
                     <option>Management</option>
                     <option>Marketing</option>
                     <option>Product</option>
@@ -265,8 +271,8 @@ function showPopUpContent(i) {
             </div>
             <div class="info-header">
                 <p class="info-text">Urgency:</p>
-                <select class="select-opitons"---------------------------------------------- id="urgency${i}" required>
-                    <option hidden selected>${inactiveTasks[i].urgency}</option>
+                <select class="select-opitons" id="urgency${pos}" required>
+                    <option hidden selected>${allTasks[pos].urgency}</option>
                     <option>Low</option>
                     <option>Middle</option>
                     <option>High</option>
@@ -274,11 +280,11 @@ function showPopUpContent(i) {
             </div>
             <div class="info-header">
                 <p class="info-text">Description:</p>
-                <textarea class="info-area" type="text" id="description${i}">${inactiveTasks[i].description}</textarea>
+                <textarea class="info-area" type="text" id="description${pos}">${allTasks[pos].description}</textarea>
             </div>
             <div class="info-button__container">
-                <button class="save-button" onclick="updateUser(${i})">Save</button>
+                <button class="save-button" onclick="updateUser(${pos})">Save</button>
             </div>
         </div>
-    `
+        `
 }
