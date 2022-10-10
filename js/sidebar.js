@@ -1,16 +1,30 @@
+
+let profileImages = [
+  'img/profile-pictures/avatar-2092113_640.png',
+  'img/profile-pictures/geek-avatar-1632962.jpg',
+  'img/profile-pictures/lady-avatar-1632967.jpg',
+  'img/profile-pictures/user-310807_640.png'
+]
+
+
+
+
+
+
+
 async function includeHTML() {
   let includeElements = document.querySelectorAll('[w3-include-html]')
   for (let i = 0; i < includeElements.length; i++) {
     const element = includeElements[i];
     file = element.getAttribute("w3-include-html"); // includes the file name
-      
-    try{
+
+    try {
       let resp = await fetch(file);
       element.innerHTML = await resp.text();
-    }catch(e){
-      element.innerHTML= "Page not found.";
+    } catch (e) {
+      element.innerHTML = "Page not found.";
     }
-  
+
   }
 }
 
@@ -66,33 +80,9 @@ function closeSidebarFullscreen() {
   document.getElementById('id-member-img').classList.remove('member-imgFullscreen');
 }
 
-/**
- * Shows the arrow which leads to the top if scrolled past certain pixels
- */
-/* window.onscroll = showBtn;
+function showUserImage() {
+  let content = document.getElementById('profile-img');
+  
 
-function showBtn() {
-  if (scrolledPastCertainPixels()) {
-    document.getElementById('id-scrollToTop').classList.remove('d-none');
-  } else {
-    document.getElementById('id-scrollToTop').classList.add('d-none');
-  }
-} */
-
-/**
-* Gave condition meaning for clean coding
-* @returns - Whether the certain pixels passed
-*/
-/* function scrolledPastCertainPixels() {
-  return document.body.scrollTop > 300 || document.documentElement.scrollTop > 300;
-} */
-
-/**
- * Clicked on the arrow image it jumps back to the top 
- */
-/* function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  })
-} */
+  
+}

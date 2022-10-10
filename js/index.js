@@ -46,7 +46,8 @@ async function signInBackend() {
         'img': 'img/contact.png',
         'name': name,
         'email': email,
-        'password': password
+        'password': password,
+        'img' : img
     }
 
     allSignedUser.push(signedUser);

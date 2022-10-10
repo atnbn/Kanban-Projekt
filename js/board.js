@@ -18,36 +18,14 @@ function updateHTML() {
     showCodeReview()
     showDone()
 }
-
+//  filters the ticket if its active the ticket will be showed in the todo section
 function showTodo() {
     let todo = allTasks.filter(t => t['board'] == 'todo' && t['status'] == 'active'); //allTask = array in script.js, active bc of backlog
     document.getElementById('boardColumnToDo').innerHTML = '';
-
     for (let i = 0; i < todo.length; i++) {
         const element = todo[i];
         document.getElementById('boardColumnToDo').innerHTML +=
-            `<div id="taggingfromBacklog" class="task-container">
-            <div class="button-container">
-                <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="/img/icons8-arrow-26.png">
-                <img onclick="deleteTask(${element.id})" class="close-img" src="/img/icons8-close-30 (2).png">
-            </div>
-            <table draggable="true" ondragstart="startDragging(${element['id']})" id="${i}"
-                onclick="openPopup(${element['id']})" class="task-board">
-                <tr>
-                    <td>Title:</td>
-                    <td>${element.title}</td>
-                </tr>
-                <tr>
-                    <td>Due to:</td>
-                    <td>${element.date}</td>
-                </tr>
-                <tr>
-                    <td>Assigned to:</td>
-                    <td>${element.assignment}</td>
-                </tr>
-            </table>
-        </div>
-            `;
+        generateHtmlTask(element);
     }
 }
 
@@ -56,32 +34,8 @@ function showInProgress() {
     document.getElementById('boardColumnInProgress').innerHTML = '';
     for (let i = 0; i < inProgress.length; i++) {
         const element = inProgress[i];
-        document.getElementById('boardColumnInProgress').innerHTML += `
-            <div class="task-container">
-                <div class="button-container">
-                    <div class="arrow-containers">
-                        <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="/img/icons8-arrow-26.png">
-                            <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="/img/icons8-arrow-26.png">
-                            </div>
-                            <img onclick="deleteTask(${element.id})" class="close-img" src="/img/icons8-close-30 (2).png">
-                            </div>
-                            <table draggable="true" ondragstart="startDragging(${element['id']})" id="${i}"
-                                onclick="openPopup(${element['id']})" class="task-board">
-                                <tr>
-                                    <td>Title:</td>
-                                    <td>${element.title}</td>
-                                </tr>
-                                <tr>
-                                    <td>Due to:</td>
-                                    <td>${element.date}</td>
-                                </tr>
-                                <tr>
-                                    <td>Assigned to:</td>
-                                    <td>${element.assignment}</td>
-                                </tr>
-                            </table>
-                    </div>
-                    `;
+        document.getElementById('boardColumnInProgress').innerHTML += 
+        generateHtmlTask(element)
     }
 }
 
@@ -90,32 +44,8 @@ function showCodeReview() {
     document.getElementById('boardColumnCodeReview').innerHTML = '';
     for (let i = 0; i < codeReview.length; i++) {
         const element = codeReview[i];
-        document.getElementById('boardColumnCodeReview').innerHTML += `
-            <div class="task-container">
-                <div class="button-container">
-                    <div class="arrow-containers">
-                        <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="/img/icons8-arrow-26.png">
-                            <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="/img/icons8-arrow-26.png">
-                            </div>
-                            <img onclick="deleteTask(${element.id})" class="close-img" src="/img/icons8-close-30 (2).png" >
-                            </div>
-                            <table draggable="true" ondragstart="startDragging(${element['id']})" id="${i}" onclick="openPopup(${element['id']})" class="task-board">
-                                <tr>
-                                    <td>Title:</td>
-                                    <td>${element.title}</td>
-
-                                </tr>
-                                <tr>
-                                    <td>Due to:</td>
-                                    <td>${element.date}</td>
-                                </tr>
-                                <tr>
-                                    <td>Assigned to:</td>
-                                    <td>${element.assignment}</td>
-                                </tr>
-                            </table>
-                    </div>
-                    `;
+        document.getElementById('boardColumnCodeReview').innerHTML +=
+            generateHtmlTask(element)
     }
 }
 
@@ -124,34 +54,15 @@ function showDone() {
     document.getElementById('boardColumnDone').innerHTML = '';
     for (let i = 0; i < done.length; i++) {
         const element = done[i];
-        document.getElementById('boardColumnDone').innerHTML += `
-            <div class="task-container">
-                <div class="button-container">
-                    <div class="arrow-containers">
-                        <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="/img/icons8-arrow-26.png">
-                    </div>
-                    <img onclick="deleteTask(${element.id})" class="close-img" src="/img/icons8-close-30 (2).png" >
-                </div>
-                <table draggable="true" ondragstart="startDragging(${element['id']})" id="${i}" onclick="openPopup(${element['id']})" class="task-board">
-                    <tr>
-                        <td>Title:</td>
-                        <td>${element.title}</td>
-                    </tr>
-                    <tr>
-                        <td>Due to:</td>
-                        <td>${element.date}</td>
-                    </tr>
-                    <tr>
-                        <td>Assigned to:</td>
-                        <td>${element.assignment}</td>
-                    </tr>
-                </table>
-            </div>
-        `;
+        document.getElementById('boardColumnDone').innerHTML +=
+         generateHtmlTask(element)
+
     }
 }
 
-/**
+
+
+/*
  * Passes the id to the global variable "currentDraggedElement"
  * @param {number} id - individual number to seperate the tickets
                     */
@@ -176,7 +87,7 @@ async function moveTo(category) {
     updateHTML();
     await saveToBackendTasks();
 }
-
+// sets the ticket an id for later uses
 function setID() {
     for (let i = 0; i < allTasks.length; i++) {
         allTasks[i]['id'] = i;
@@ -190,7 +101,7 @@ async function deleteTask(id) {
     await saveToBackendTasks();
     updateHTML();
 }
-
+    // is collecting the id from the task and opens it in a bigger window 
 function openPopup(id) {
     let task = allTasks.find(t => t.id === id);
     let pos = allTasks.indexOf(task);
@@ -198,7 +109,7 @@ function openPopup(id) {
     document.getElementById('popup').style.display = 'flex';
     content.innerHTML = loadPopUpContent(pos)
 }
-
+// Contains the information from the task if the user wan´t to change something.
 function updateUser(i) {
     let category = document.getElementById('category' + i).value
     let urgency = document.getElementById('urgency' + i).value;
@@ -214,8 +125,8 @@ function updateUser(i) {
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
-
-moveTaskToNextStage = async (id) => {
+// checks the position from the task and makes posibble to move to the next section
+async function moveTaskToNextStage(id)  {
     let task = allTasks.find(t => t.id === id);
     let pos = allTasks.indexOf(task);
     if (allTasks[pos].board === 'todo') {
@@ -229,8 +140,8 @@ moveTaskToNextStage = async (id) => {
     await saveToBackendTasks();
     updateHTML();
 }
-
-moveTaskBack = async (id) => {
+// checks the position from the task and makes it posibble to move to the previous section
+async function moveTaskBack(id){
     let task = allTasks.find(t => t.id === id);
     let pos = allTasks.indexOf(task);
     if (allTasks[pos].board === 'inProgress') {
@@ -241,8 +152,6 @@ moveTaskBack = async (id) => {
     } else if (allTasks[pos].board == 'done') {
         allTasks[pos].board = 'codeReview';
     }
-    console.log('moving back');
-
     await saveToBackendTasks();
     updateHTML();
 }
@@ -250,7 +159,7 @@ moveTaskBack = async (id) => {
 function removeResponsivMenu() {
     document.getElementById('id-sidebarFullscreen').style.display = 'none';
 }
-
+// contains the html content for the Popup 
 function loadPopUpContent(pos) {
     return `
         <div class="info-container">
@@ -287,4 +196,32 @@ function loadPopUpContent(pos) {
             </div>
         </div>
         `
+}
+
+// contains the content for the task 
+function generateHtmlTask(element) {
+    return `<div class="task-container">
+    <div class="button-container">
+        <div class="arrow-containers">
+            <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="/img/icons8-arrow-26.png">
+                <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="/img/icons8-arrow-26.png">
+                </div>
+                <img onclick="deleteTask(${element.id})" class="close-img" src="/img/icons8-close-30 (2).png">
+                </div>
+                <table draggable="true" ondragstart="startDragging(${element['id']})" 
+                    onclick="openPopup(${element['id']})" class="task-board">
+                    <tr>
+                        <td>Title:</td>
+                        <td>${element.title}</td>
+                    </tr>
+                    <tr>
+                        <td>Due to:</td>
+                        <td>${element.date}</td>
+                    </tr>
+                    <tr>
+                        <td>Assigned to:</td>
+                        <td>${element.assignment}</td>
+                    </tr>
+                </table>
+        </div>`
 }

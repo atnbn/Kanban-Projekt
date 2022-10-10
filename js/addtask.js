@@ -11,31 +11,27 @@ async function init() {
 
 /**
  * Deletes user from array "allSignedUser", saves the backend adjustment and loads assignToMembers() to show changes
- * @param {Number} i - Which one was selected
+ * @param {number} i - Which one was selected
  */
 function deleteUser(i) {
     allSignedUser.splice(i, 1);
     saveToBackendSignUps();
     assignToMembers();
 }
-
 /**
  * Alters the array "selectedMembers" and replaces the plus with a minus by selection
  * @param {number} i - filters which user was selected
  */
-
 async function createTask() {
-    // if (selectedMembers.length != 0) {
     gatherInputFields();
     await saveToBackendTasks();
     deleteInformation();
     addPopUp()
-    // } else {
-    //     alert("Please select an assigne!");
-    // }
 }
 
-// Gathers all infos from input and creates  a Task/**
+/* 
+*Gathers all infos from input and creates  a Task 
+*/
 function gatherInputFields() {
     let title = document.getElementById('id-title').value;
     let date = document.getElementById('id-date').value;
@@ -82,7 +78,6 @@ function clearTask() {
     document.getElementById('id-description').value = '';
 }
 /**
- * For loop which shows the profile picture and username from the array "allSignedUser" plus an select and delete button
  */
 function assignToMembers() {
     document.getElementById('id-assignment').innerHTML = ``; //necessary otherwise too much gets added
@@ -99,8 +94,4 @@ function addPopUp() {
     setTimeout(() => {
         document.getElementById('alert').classList.add('d-none');
     }, 3000);
-}
-
-function loadAnimation() {
-    addPopUp();
 }
