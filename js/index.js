@@ -23,8 +23,9 @@ function backToLogin() {
  * Checks if account data exists in array "allSignedUser", if yes leads to board.html and if no it shows an alert 
  */
 async function login() {
-    let email = document.getElementById('id-email').value; 
-    let password = document.getElementById('id-password').value;   
+
+    let email = document.getElementById('id-email').value;
+    let password = document.getElementById('id-password').value;
     let found = allSignedUser.find(u => u.email === email && u.password === password);
 
     if (found) {
@@ -38,19 +39,20 @@ async function login() {
  * Pushes the account data to array "allSignedUser", saves into backend and leads to board.html
  */
 async function signInBackend() {
-    let name = document.getElementById('id-name').value; 
-    let email = document.getElementById('id-email1').value; 
-    let password = document.getElementById('id-password1').value; 
+    debugger
+    let name = document.getElementById('id-name').value;
+    let email = document.getElementById('id-email1').value;
+    let password = document.getElementById('id-password1').value;
 
     let signedUser = {
         'img': 'img/contact.png',
         'name': name,
         'email': email,
-        'password': password,
-        'img' : img
+        'password': password
+        // 'img' : img
     }
 
     allSignedUser.push(signedUser);
-    await saveToBackendSignUps();
+    await saveToBackendSignUps(allSignedUser);
     window.location.href = "./board.html";
 }

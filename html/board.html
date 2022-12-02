@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JoinKanban</title>
     <!-- ICON TO BROWSER TAB -->
-    <link rel="shortcut icon" href="/img/joinlogo.png">
+    <link rel="shortcut icon" href="../img/joinlogo.png">
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/sidebarcss.css">
-    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="../css/sidebarcss.css">
+    <link rel="stylesheet" href="../css/board.css">
+    <link rel="stylesheet" href="../css/main.css">
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,18 +19,20 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <!-- JS -->
-    <script src="/js/sidebar.js"></script>
-    <script src="/js/board.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/board.js"></script>
     <!-- Backend -->
-    <script src="/js/mini_backend.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="../js/mini_backend.js"></script>
+    <script src="../js/script.js"></script>
 </head>
 
 <body id="id-body" onload="init()">
     <div w3-include-html="sidebar.html"></div>
-    <img onclick="sidebarFullscreen()" id="id-sidebarFullscreen" class="img-sidebarBtn"
-        style="position: fixed; top: 0; right: 0" src="/img/sidebarBtn.png">
-    <div class="bg-board">
+
+<div class="main-content">
+ <div class="title-container">
+              <h1>Add Task</h1>
+            </div>
         <div class="flex-container">
             <div class="task-area">
                 <div class="board-discription">
@@ -71,7 +74,7 @@
         </div>
     </div>
     </div>
-    </div>
+    </div></div>
    
 </body>
 

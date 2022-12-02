@@ -1,36 +1,33 @@
-<div id="id-sidebar" class="side-bar">
-    <div id="id-sidebarCloseBtn" onclick="closeSidebarFullscreen()" class="close-btn d-none">X</div>
-    <div class="logo">
-        <img src="/img/joinlogo.png">
+<section>
+  <div class="sidebar">
+    <div class="logo-container">
+      <img class="img-icon" src="../img/sidebar/Kanban-logo.svg" class="logo" />
     </div>
-    <div id="id-links" class="links">
-        <!-- Board -->
-        <a id="link-board" class="sidebar-links" href="/html/board.html">
-            <span id="id-linkText" class="link-text">Board</span>
-            <!-- <img src="./img/to-do-list.png" class="sidebar-img"> -->
-        </a>
-        <!-- Backlog -->
-        <a id="link-backlog" class="sidebar-links" href="/html/backlog.html">
-            <span id="id-linkText" class="link-text ">Backlog</span>
-            <!-- <img class="sidebar-img" src="./img/history.png"> -->
-        </a>
-        <!-- Add Task -->
-        <a id="link-addtask" class="sidebar-links" href="/html/addtask.html">
-            <span id="id-linkText" class="link-text  ">Add task</span>
-            <!-- <img class="sidebar-img" src="./img/add.png"> -->
-        </a>
-        <!-- Help -->
-        <a id="link-help" class="sidebar-links" href="/html/help.html">
-            <span id="id-linkText" class="link-text">Help</span>
-            <!-- <img class="sidebar-img" src="./img/question.png"></a> -->
-        </a>
-        <!-- Imprint -->
-        <a id="link-imprint" class="sidebar-links" href="/html/imprint.html">
-            <span id="id-linkText" class="link-text">Imprint</span>
-        </a>
+    <div class="links">
+      <div class="link-container">
+        <img class="img-icon" src="../img/sidebar/Board-icon.svg" />
+        <a href="../html/board.html" class="link">Board</a>
+      </div>
+      <div class="link-container">
+        <img class="img-icon" src="../img/sidebar/Summary-icon.png" />
+        <a href="../html/backlog.html" class="link">Backlog</a>
+      </div>
+      <div class="link-container">
+        <img class="img-icon" src="../img/sidebar/addtask-icon.svg" />
+        <a href="../html/addtask.html" class="link">Add Task</a>
+      </div>
+      <div class="link-container">
+        <img
+          class="img-icon"
+          style="height: 35px"
+          src="../img/sidebar/help-icon.png"
+        />
+        <a href="../html/help.html" class="link">Help</a>
+      </div>
+      <!-- <div class="link-container">
+        <img src="../img/.svg" />
+        <a href="../html/imprint.html" class="link">Imprint</a>
+      </div> -->
     </div>
-    <!-- <div id="profile-container">
-        Hier wird das Member Profilbild angezeigt
-        <img id="profile-img" class="member-img" src="./img/3551739.jpg">
-    </div> -->
-</div>
+  </div>
+</section>

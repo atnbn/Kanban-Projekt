@@ -9,6 +9,8 @@ async function init() {
     setTimeout(() => { checkUrlShowOnNav(); }, 500)
 }
 
+
+
 /**
  * Deletes user from array "allSignedUser", saves the backend adjustment and loads assignToMembers() to show changes
  * @param {number} i - Which one was selected
@@ -80,7 +82,7 @@ function clearTask() {
 /**
  */
 function assignToMembers() {
-    document.getElementById('id-assignment').innerHTML = ``; //necessary otherwise too much gets added
+    document.getElementById('id-assignment').innerHTML = ""; //necessary otherwise too much gets added
     for (let i = 0; i < allSignedUser.length; i++) {
         let member = allSignedUser[i];
         document.getElementById('id-assignment').innerHTML += `

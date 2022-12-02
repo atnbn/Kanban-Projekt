@@ -16,10 +16,10 @@ td {
     padding: 5px 10px 5px 0px;
 }
 
-input {
+/* input {
     outline: none;
-    width: 200px !important;
-}
+    width: 200px !important; */
+/* } */
 
 select {
     outline: none;
@@ -35,7 +35,7 @@ textarea {
     padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
-    
+
 
 }
 
@@ -138,10 +138,12 @@ textarea {
 .div-padding {
     padding: 0px 0px 0px 50px;
 }
-form{
+
+form {
     display: flex;
     justify-content: space-between;
 }
+
 .div-deleteUser {
     color: #C2C2C2;
     cursor: pointer;
@@ -176,7 +178,8 @@ form{
     gap: 10px;
     bottom: 10px;
 }
-.alert{
+
+.alert {
     max-width: 400px;
     min-width: 150px;
     position: absolute;
@@ -186,31 +189,48 @@ form{
     padding: 5px;
     border-radius: 10px;
     font-weight: 600;
-    animation:alert 0.3s linear;
+    animation: alert 0.3s linear;
 
 }
+
 @keyframes alert {
 
-    0%{
+    0% {
         transform: translateX(0%) translateY(-100%);
         opacity: 1;
     }
-    50%{
+
+    50% {
         transform: translateX(0%) translateY(-50%);
         opacity: 1;
     }
-    100%{
+
+    100% {
         transform: translateX(0%) translateY(0%);
     }
-    
-    
-}
-.d-none{
-    display: none;
-}
-@media (max-width: 908px) {
+
 
 }
+
+.d-none {
+    display: none;
+}
+
+
+
+
+@media(width : 1050px) {}
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 800px) {
     .div-flex {
@@ -229,20 +249,23 @@ form{
     .div-padding {
         padding: 0px 0px 0px 0px;
     }
+
     .div-position {
         padding: 0px;
         margin-bottom: 35px;
     }
-    form{
+
+    form {
         flex-direction: column;
         width: 100%;
     }
 
-    .title-container{
+    .title-container {
         justify-content: center;
-    text-align: center;
+        text-align: center;
     }
-    .div-createOrCancel{
+
+    .div-createOrCancel {
         right: 0;
         bottom: 0;
     }
@@ -257,10 +280,12 @@ form{
         right: 19px;
         margin: 0;
     }
-    .text-cancel{
+
+    .text-cancel {
         margin-right: 0px;
     }
-    .div-padding{
+
+    .div-padding {
         width: 100%;
     }
 }
@@ -275,7 +300,8 @@ form{
     .div-position {
         padding: 10px 30px 0px 30px;
     }
-    .text-cancel{
+
+    .text-cancel {
         margin-right: 0px;
     }
 

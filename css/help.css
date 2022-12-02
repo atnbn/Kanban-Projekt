@@ -7,11 +7,14 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-family: 'PT Sans', sans-serif;
 }
-.background-container{
+
+.background-container {
     background-color: #EBEDFC;
     border-radius: 10px;
     padding: 7.5px 20px;
+    max-width: 1000px;
 }
+
 p {
     padding: 5px 0px;
 }
@@ -19,11 +22,13 @@ p {
 h3 {
     padding: 20px 0px 5px 0px;
 }
+
 .active {
     background-color: white !important;
     color: black !important;
     right: -7px !important;
 }
+
 .active {
     background-color: white !important;
     color: black !important;
@@ -126,6 +131,6 @@ h3 {
     }
 }
 
-.black{
+.black {
     color: black;
 }

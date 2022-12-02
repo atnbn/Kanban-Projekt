@@ -46,3 +46,20 @@
         // <td style="display:flex; align-items: center"><img class="img-profilePicture" src="${Member['img']}">${Member['name']}</td>
         // <td><img onclick="select(${i})" id="id-add${i}" class="img-add" src="img/plus.png"></td>
         // </tr>
+
+
+
+
+
+
+
+
+
+        // board Popup 
+        
+    // document.getElementById('taskFullscreen-title').innerHTML = 'Title:  ' + allTasks[pos].title;
+    // document.getElementById('taskFullscreen-date').innerHTML = 'Due to: ' + allTasks[pos].date;
+    // document.getElementById('taskFullscreen-category').innerHTML = 'Category: ' + allTasks[pos].category;
+    // document.getElementById('taskFullscreen-assignment').innerHTML = 'Assigned to: ' + allTasks[pos].assignment;
+    // document.getElementById('taskFullscreen-urgency').innerHTML = 'Urgency: ' + allTasks[pos].urgency;
+    // document.getElementById('taskFullscreen-description').innerHTML = 'Task description: ' + allTasks[pos].description;

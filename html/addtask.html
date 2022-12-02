@@ -1,103 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JoinKanban</title>
     <!-- ICON TO BROWSER TAB -->
-    <link rel="shortcut icon" href="/img/joinlogo.png">
+    <link rel="shortcut icon" href="../img/joinlogo.png" />
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/addtask.css">
-    <link rel="stylesheet" href="/css/sidebarcss.css">
+    <link rel="stylesheet" href="../css/addtask.css" />
+    <link rel="stylesheet" href="../css/sidebarcss.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/new-addtask.css" />
     <!-- FONT 'PT SANS' -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- JS -->
-    <script src="/js/addtask.js"></script>
-    <script src="/js/sidebar.js"></script>
+    <script src="../js/sidebar.js"></script>
     <!-- Backend -->
-    <script src="/js/mini_backend.js"></script>
-    <script src="/js/script.js"></script> <!-- extra file for clarity -->
-</head>
+    <script src="../js/mini_backend.js"></script>
+    <script src="../js/script.js"></script>
+    <!-- extra file for clarity -->
+  </head>
 
-<body id="id-body" onload="init()">
-    <div w3-include-html="sidebar.html"></div>
+  <body id="id-body" onload="init()">
+    <div class="side-box" w3-include-html="sidebar.html"></div>
+<!-- 
+    <img
+      onclick="sidebarFullscreen()"
+      id="id-sidebarFullscreen"
+      class="img-sidebarBtn"
+      style="position: fixed; top: 0; right: 0"
+      src="../img/sidebarBtn.png"
+    /> -->
 
-    <img onclick="sidebarFullscreen()" id="id-sidebarFullscreen" class="img-sidebarBtn"
-        style="position: fixed; top: 0; right: 0" src="/img/sidebarBtn.png">
-
-    <div class="div-position">
-        <div class="title-container">
-            <div style="display:flex;flex-direction: column; padding-top: 20px;">
-                <b style="font-size: 30px;">Add task</b>
-                <div class="color bold">Learning Management System Project</div>
+    <div class="main-content">
+      <section>
+          <div class="title-container">
+              <h1>Add Task</h1>
             </div>
-        </div>
-        <div class="div-background">
+            <!-- Form -->
             <form onsubmit="createTask(); return false;">
-                <!-- when no "return false" the page refreshes after confirming the alert "Please select an assigne!" -->
-                <div class="div-flex">
-                    <div class="div-column color div-flex">
-                        <!-- title -->
-                        <p class="color bold">TITLE</p>
-                        <input id="id-title" required class="div-fillIns" type="text" placeholder="Please fill in...">
+        <div class="form-container">
+          <div class="left-form">
+            <label class="labels" for="title">Ttiel</label>
+            <input placeholder="Enter a title" type="text" id="id-title" />
+            <div class="column">
+              <label class="labels pb" for="description">Description</label>
+              <textarea
+                class=""
+                placeholder="Enter a Description"
+                type="text"
+                id="id-description"
+              ></textarea>
+            </div>
+            <label for="category">Category</label>
+            <select id="id-category" required>
+              <option hidden selected value="">Select task category...</option>
+              <option>New Category</option>
+              <option>Sales</option>
+              \watch
+              <option>Backoffice</option>
+            </select>
+            <label>Assigned to</label>
+            <select id="id-assignment" required>
+              <option hidden selected value="">
+                Select contacts to assign...
+              </option>
+            </select>
+          </div>
+          <div class="middle-line"></div>
+          <div class="right-form">
+            <label class="labels" for="date">Due date</label>
+            <!-- <img class="icon-date icon" src="../img/addtask/calender-icon.svg"  /> -->
+            <input id="id-date" type="date" />
+          <label class="labels" for="Prio">Prio</label>
+            <div class="input-container">
+              <select id="id-urgency" required>
+                <option hidden selected value="">
+                  Please select an urgency...
+                </option>
+                <option>Low</option>
+                <option>Middle</option>
+                <option>High</option>
+              </select>
+          </div>
+          <!-- '  <div class="input-container"> 
+                <label for="subtasks">Subtasks</label>
+                <img class="icon-date icon" src="../img/addtask/plus-icon.svg">
+                <input type="text" placeholder="Add new subtask">
+              </div>
+              <div class="checkbox-container">
+                <input class="checkbox" type="checkbox">
+                <span> Subtask 1</span>
+              </div>' -->
+          <!-- Buttons -->
+          <div class="button-container">
+            <div class="input-container">
+              <img class="icon cross-icon" src="../img/addtask/cross.svg" />
+              <button id="clear-btn" class="clear">Clear</button>
+            </div>
+            <div class="input-container">
+              <img class="icon arrow-icon" src="../img/addtask/arrow.svg" />
+              <button id="create-btn" class="createtask">Create task</button>
+            </div>
+          </div>
+        </div></form>
+      </section>
 
-                        <!-- description -->
-                        <p class="color bold">DESCRIPTION</p>
-                        <textarea required id="id-description" class="div-description" placeholder="Please fill in..."
-                            cols="30" rows="5"></textarea>
-                       
-                        <!-- category -->
-                        <p class="color bold">CATEGORY</p>
-                        <select id="id-category" class="div-fillIns" required>
-                            <option hidden selected value="">Please select a category...</option>
-                            <option>Management</option>
-                            <option>Marketing</option>
-                            <option>Product</option>
-                            <option>Sale</option>
-                        </select>
-                         <!-- assigned to -->
-                         <p class="color bold">ASSIGNED TO</p>
-                         <table>
-                             <select class="div-tbody" id="id-assignment">
-
-                             </select>
-                         </table>
-                    </div>
-
-                </div>
-                <div></div>
-                <div class="div-padding">
-                    <p class="color bold">DUE DATE</p>
-                    <input id="id-date" required class="div-fillIns" type="date">
-                    <p class="color bold">URGENCY</p>
-                    <select id="id-urgency" class="div-fillIns" required>
-                        <option hidden selected value="">Please select an urgency...</option>
-                        <option>Low</option>
-                        <option>Middle</option>
-                        <option>High</option>
-                    </select>
-                    <div class="div-createOrCancel">
-                        <p onclick="clearTask()" class="text-cancel color">CANCEL</p>
-                        <button type="submit" id="id-createTask" class="text-createTask">CREATE TASK</button>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
-
-    <div id="alert" class="alert d-none">
-        YOUR TASK HAS BEEN ADDED
-    </div>
-
+    <div id="alert" class="alert d-none">YOUR TASK HAS BEEN ADDED</div>
 
     <!-- <button style="position:absolute; top:0; right:50%;" onclick="loadAnimation()">LOAD ANIMATION</button> -->
-</body>
+    <!-- New section  -->
+    <script src="../js/addtask.js"></script>
 
+  </body>
 </html>

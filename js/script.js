@@ -14,8 +14,8 @@ async function saveToBackendTasks() {
 /**
  * Saves array "allSignedUser" to backend
  */
-async function saveToBackendSignUps() {
-    await backend.setItem('allSignedUser', JSON.stringify(allSignedUser));
+async function saveToBackendSignUps(users) {
+    await backend.setItem('allSignedUser', JSON.stringify(users));
 }
 
 

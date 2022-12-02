@@ -1,17 +1,3 @@
-
-let profileImages = [
-  'img/profile-pictures/avatar-2092113_640.png',
-  'img/profile-pictures/geek-avatar-1632962.jpg',
-  'img/profile-pictures/lady-avatar-1632967.jpg',
-  'img/profile-pictures/user-310807_640.png'
-]
-
-
-
-
-
-
-
 async function includeHTML() {
   let includeElements = document.querySelectorAll('[w3-include-html]')
   for (let i = 0; i < includeElements.length; i++) {
@@ -78,11 +64,4 @@ function closeSidebarFullscreen() {
   document.getElementById('id-profilePicture').classList.remove('div-profilePicture');
   document.getElementById('id-member-img').classList.add('member-img');
   document.getElementById('id-member-img').classList.remove('member-imgFullscreen');
-}
-
-function showUserImage() {
-  let content = document.getElementById('profile-img');
-  
-
-  
 }

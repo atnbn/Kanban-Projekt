@@ -9,6 +9,8 @@ async function init() {
     // canvasInfo = canvas.getBoundingClientRect();
 }
 
+
+
 /**
  * Shows the tickets in the respective column 
  */
@@ -25,7 +27,7 @@ function showTodo() {
     for (let i = 0; i < todo.length; i++) {
         const element = todo[i];
         document.getElementById('boardColumnToDo').innerHTML +=
-        generateHtmlTask(element);
+            generateHtmlTask(element);
     }
 }
 
@@ -34,8 +36,8 @@ function showInProgress() {
     document.getElementById('boardColumnInProgress').innerHTML = '';
     for (let i = 0; i < inProgress.length; i++) {
         const element = inProgress[i];
-        document.getElementById('boardColumnInProgress').innerHTML += 
-        generateHtmlTask(element)
+        document.getElementById('boardColumnInProgress').innerHTML +=
+            generateHtmlTask(element)
     }
 }
 
@@ -55,7 +57,7 @@ function showDone() {
     for (let i = 0; i < done.length; i++) {
         const element = done[i];
         document.getElementById('boardColumnDone').innerHTML +=
-         generateHtmlTask(element)
+            generateHtmlTask(element)
 
     }
 }
@@ -101,7 +103,7 @@ async function deleteTask(id) {
     await saveToBackendTasks();
     updateHTML();
 }
-    // is collecting the id from the task and opens it in a bigger window 
+// is collecting the id from the task and opens it in a bigger window 
 function openPopup(id) {
     let task = allTasks.find(t => t.id === id);
     let pos = allTasks.indexOf(task);
@@ -126,7 +128,7 @@ function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
 // checks the position from the task and makes posibble to move to the next section
-async function moveTaskToNextStage(id)  {
+async function moveTaskToNextStage(id) {
     let task = allTasks.find(t => t.id === id);
     let pos = allTasks.indexOf(task);
     if (allTasks[pos].board === 'todo') {
@@ -140,8 +142,11 @@ async function moveTaskToNextStage(id)  {
     await saveToBackendTasks();
     updateHTML();
 }
-// checks the position from the task and makes it posibble to move to the previous section
-async function moveTaskBack(id){
+/*
+* checks the position from the task and makes it posibble to move to the previous section
+*/
+
+async function moveTaskBack(id) {
     let task = allTasks.find(t => t.id === id);
     let pos = allTasks.indexOf(task);
     if (allTasks[pos].board === 'inProgress') {
@@ -159,7 +164,9 @@ async function moveTaskBack(id){
 function removeResponsivMenu() {
     document.getElementById('id-sidebarFullscreen').style.display = 'none';
 }
-// contains the html content for the Popup 
+/*
+*contains the html content for the Popup
+*/
 function loadPopUpContent(pos) {
     return `
         <div class="info-container">
@@ -198,15 +205,17 @@ function loadPopUpContent(pos) {
         `
 }
 
-// contains the content for the task 
+/*
+* contains the content for the task 
+*/
 function generateHtmlTask(element) {
     return `<div class="task-container">
     <div class="button-container">
         <div class="arrow-containers">
-            <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="/img/icons8-arrow-26.png">
-                <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="/img/icons8-arrow-26.png">
+            <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="../img/icons8-arrow-26.png">
+                <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="../img/icons8-arrow-26.png">
                 </div>
-                <img onclick="deleteTask(${element.id})" class="close-img" src="/img/icons8-close-30 (2).png">
+                <img onclick="deleteTask(${element.id})" class="close-img" src="../img/icons8-close-30 (2).png">
                 </div>
                 <table draggable="true" ondragstart="startDragging(${element['id']})" 
                     onclick="openPopup(${element['id']})" class="task-board">

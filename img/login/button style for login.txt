@@ -1,0 +1,54 @@
+
+Sign Up button
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 16px;
+gap: 10px;
+width: 91px;
+height: 51px;
+background: #2A3647;
+border-radius: 8px;
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+----------------------------------------------------
+Log in button
+
+width: 62px;
+height: 25px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 21px;
+line-height: 120%;
+/* or 25px */
+color: #FFFFFF;
+
+-------------------------------------------------------
+Guest Log in Button
+
+
+box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 16px;
+gap: 10px;
+
+width: 161px;
+height: 51px;
+
+/* Version 2/ main color */
+
+border: 1px solid #2A3647;
+border-radius: 8px;
+----------------------------------------------
+
