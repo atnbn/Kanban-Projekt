@@ -209,3 +209,19 @@ header {
         height: 20px !important;
     }
 }
+
+
+@media(max-width: 500px) {
+
+    .sidebar {
+        height: 40px;
+    }
+
+    .link-container {
+        font-size: 15px;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+
+}

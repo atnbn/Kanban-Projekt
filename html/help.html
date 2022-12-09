@@ -11,6 +11,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/sidebarcss.css">
     <link rel="stylesheet" href="../css/help.css">
+    <link rel="stylesheet" href="../css/main.css">
     <!-- JS -->
     <script src="../js/help.js"></script>
     <script src="../js/sidebar.js"></script>
@@ -20,11 +21,11 @@
 </head>
 
 <body id="id-body" onload="includeHTML(), init()">
-    <div w3-include-html="sidebar.html"></div>
+    <div class="side-box" w3-include-html="sidebar.html"></div>
+    <div class="main-content">
 
-    <img onclick="sidebarFullscreen()" id="id-sidebarFullscreen" class="img-sidebarBtn"
-        style="position: fixed; top: 0; right: 0" src="../img/sidebarBtn.png">
-
+ 
+   
     <div class="div-position">
     <div class="background-container">
 
@@ -74,7 +75,12 @@
         <br>
 
         <img id="id-scrollToTop" onclick="scrollToTop()" class="img-arrowToTop d-none" src="../img/arrowTop.png">
+
+        <a class="link" href="../html/imprint.html">Imprint</a>
     </div>
+    
+    <div class="shadow-box"></div>
+</div>
 </div>
 </body>
 

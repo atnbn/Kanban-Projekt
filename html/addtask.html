@@ -30,43 +30,68 @@
 
   <body id="id-body" onload="init()">
     <div class="side-box" w3-include-html="sidebar.html"></div>
-<!-- 
+    <!-- 
     <img
       onclick="sidebarFullscreen()"
       id="id-sidebarFullscreen"
       class="img-sidebarBtn"
-      style="position: fixed; top: 0; right: 0"
+      style="pos v ition: fixed; top: 0; right: 0"
       src="../img/sidebarBtn.png"
     /> -->
 
     <div class="main-content">
-      <section>
-          <div class="title-container">
-              <h1>Add Task</h1>
-            </div>
-            <!-- Form -->
-            <form onsubmit="createTask(); return false;">
-        <div class="form-container">
-          <div class="left-form">
-            <label class="labels" for="title">Ttiel</label>
-            <input placeholder="Enter a title" type="text" id="id-title" />
-            <div class="column">
-              <label class="labels pb" for="description">Description</label>
-              <textarea
-                class=""
-                placeholder="Enter a Description"
-                type="text"
-                id="id-description"
-              ></textarea>
-            </div>
-            <label for="category">Category</label>
-            <select id="id-category" required>
-              <option hidden selected value="">Select task category...</option>
-              <option>New Category</option>
-              <option>Sales</option>
-              \watch
+      <section class="margin">
+        <div class="title-container">
+          <h1>Add Task</h1>
+        </div>
+
+        <!-- Form -->
+
+        <form onsubmit="createTask(); return false;">
+          <div class="form-container">
+            <div class="left-form">
+              <label class="labels" for="title">Ttiel</label>
+              <input placeholder="Enter a title" type="text" id="id-title" />
+              <div class="column">
+                <label class="labels pb" for="description">Description</label>
+                <textarea
+                  class=""
+                  placeholder="Enter a Description"
+                  type="text"
+                  id="id-description"
+                ></textarea>
+              </div>
+              <label for="category">Category</label>
+              <select id="id-category" required>
+                <option hidden selected value="">
+                  Select task category...
+                </option>
+                <!-- <option value="addcategory" id="new-category">New Category</option> -->
+                <!-- <option>Sales</option>
               <option>Backoffice</option>
-            </select>
+              <option>Marketing</option> -->
+              </select>
+              <!-- Create new Category -->
+              <!-- <div class="create-category-container">
+                <input type="text" id="createInput" />
+                <button class="btn-category" onclick="createNewCategory()">
+                  <img
+                    class="btn-img-category"
+                    src="../img/addtask/plus-icon.svg"
+                  />
+                </button>
+              </div> -->
+              <!-- <div class="dot-container">
+                <button id="dot-1" value="#FC71FF" class="dot pink"></button>
+                <button id="dot-2" value="#1FD7C1" class="dot green"></button>
+                <button id="dot-3" value="#FF7A00" class="dot orange"></button>
+                <button id="dot-4" value="#0038FF" class="dot blue"></button>
+                <button
+                  id="dot-5"
+                  value="rgb(0, 100, 150)"
+                  class="dot bluelight"
+                ></button>
+              </div> -->
             <label>Assigned to</label>
             <select id="id-assignment" required>
               <option hidden selected value="">
@@ -79,7 +104,7 @@
             <label class="labels" for="date">Due date</label>
             <!-- <img class="icon-date icon" src="../img/addtask/calender-icon.svg"  /> -->
             <input id="id-date" type="date" />
-          <label class="labels" for="Prio">Prio</label>
+            <label class="labels" for="Prio">Prio</label>
             <div class="input-container">
               <select id="id-urgency" required>
                 <option hidden selected value="">
@@ -89,8 +114,8 @@
                 <option>Middle</option>
                 <option>High</option>
               </select>
-          </div>
-          <!-- '  <div class="input-container"> 
+            </div>
+            <!-- '  <div class="input-container"> 
                 <label for="subtasks">Subtasks</label>
                 <img class="icon-date icon" src="../img/addtask/plus-icon.svg">
                 <input type="text" placeholder="Add new subtask">
@@ -99,26 +124,26 @@
                 <input class="checkbox" type="checkbox">
                 <span> Subtask 1</span>
               </div>' -->
-          <!-- Buttons -->
-          <div class="button-container">
-            <div class="input-container">
-              <img class="icon cross-icon" src="../img/addtask/cross.svg" />
-              <button id="clear-btn" class="clear">Clear</button>
-            </div>
-            <div class="input-container">
-              <img class="icon arrow-icon" src="../img/addtask/arrow.svg" />
-              <button id="create-btn" class="createtask">Create task</button>
+            <!-- Buttons -->
+            <div class="button-container">
+              <div class="input-container">
+                <img class="icon cross-icon" src="../img/addtask/cross.svg" />
+                <button id="clear-btn" class="clear">Clear</button>
+              </div>
+              <div class="input-container">
+                <img class="icon arrow-icon" src="../img/addtask/arrow.svg" />
+                <button id="create-btn" class="createtask">Create task</button>
+              </div>
             </div>
           </div>
-        </div></form>
+        </form>
       </section>
-
+      <div class="shadow-box"></div>
     </div>
     <div id="alert" class="alert d-none">YOUR TASK HAS BEEN ADDED</div>
 
     <!-- <button style="position:absolute; top:0; right:50%;" onclick="loadAnimation()">LOAD ANIMATION</button> -->
     <!-- New section  -->
     <script src="../js/addtask.js"></script>
-
   </body>
 </html>

@@ -19,6 +19,7 @@ function updateHTML() {
     showInProgress()
     showCodeReview()
     showDone()
+
 }
 //  filters the ticket if its active the ticket will be showed in the todo section
 function showTodo() {
@@ -41,6 +42,7 @@ function showInProgress() {
     }
 }
 
+
 function showCodeReview() {
     let codeReview = allTasks.filter(t => t['board'] == 'codeReview');
     document.getElementById('boardColumnCodeReview').innerHTML = '';
@@ -58,7 +60,6 @@ function showDone() {
         const element = done[i];
         document.getElementById('boardColumnDone').innerHTML +=
             generateHtmlTask(element)
-
     }
 }
 
@@ -209,28 +210,22 @@ function loadPopUpContent(pos) {
 * contains the content for the task 
 */
 function generateHtmlTask(element) {
-    return `<div class="task-container">
-    <div class="button-container">
-        <div class="arrow-containers">
-            <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="../img/icons8-arrow-26.png">
-                <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="../img/icons8-arrow-26.png">
-                </div>
-                <img onclick="deleteTask(${element.id})" class="close-img" src="../img/icons8-close-30 (2).png">
-                </div>
-                <table draggable="true" ondragstart="startDragging(${element['id']})" 
-                    onclick="openPopup(${element['id']})" class="task-board">
-                    <tr>
-                        <td>Title:</td>
-                        <td>${element.title}</td>
-                    </tr>
-                    <tr>
-                        <td>Due to:</td>
-                        <td>${element.date}</td>
-                    </tr>
-                    <tr>
-                        <td>Assigned to:</td>
-                        <td>${element.assignment}</td>
-                    </tr>
-                </table>
+    return `
+    
+        <div class="task-container" draggable="true" ondragstart="startDragging(${element['id']})" 
+        onclick="openPopup(${element['id']})" class="task-board">
+        <div id="category-container${element}" class="category-background">
+        <span class="category">${element.category}</span>
+        </div>
+        <span class="title">${element.title}</span>
+        <span class="description">${element.description}</span>
+        <div class="footer-task">
+        <span class="user">${element.assignment}</span>
+        <span class="urgency">${element.urgency}</span>
+        </div>
+
         </div>`
 }
+
+
+

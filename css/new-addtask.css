@@ -1,13 +1,9 @@
-:root {
+root {
     --darkgray: #2A3647;
     --btnhover: #0c8ce9;
 }
 
 
-
-.d-none {
-    display: none;
-}
 
 
 
@@ -209,7 +205,26 @@ form {
     gap: 13px;
 }
 
+.create-category-container {
+    position: relative;
+    display: flex;
+}
 
+.btn-category {
+    position: absolute;
+    right: 1px;
+    top: 3.5px;
+    width: 30px;
+    height: 25px;
+    border: none;
+    background-color: none;
+    background: none;
+}
+
+.btn-img-category {
+    display: flex;
+    position: absolute;
+}
 
 .clear {
     width: 80px;
@@ -243,6 +258,10 @@ form {
 }
 
 
+
+
+
+
 @media(max-width: 850px) {
     .form-container {
         display: flex;
@@ -266,6 +285,14 @@ form {
     .cross-icon {
         display: none;
     }
+
+    .main-content {
+        display: flex;
+        align-items: center;
+    }
+
+
+
 }
 
 
@@ -286,8 +313,21 @@ form {
         overflow-y: auto;
     }
 
+    .margin {
+        margin-left: 10px;
+    }
+
     .form-container, form {
         overflow-x: hidden;
+    }
+
+    .button-container {
+
+        margin-top: 5px;
+    }
+
+    .right-form {
+        gap: 5px;
     }
 }
 

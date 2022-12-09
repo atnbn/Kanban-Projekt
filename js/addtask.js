@@ -1,5 +1,5 @@
 let selectedMembers = [];
-
+let color;
 async function init() {
     includeHTML();
     await downloadFromServer();
@@ -7,8 +7,8 @@ async function init() {
     loadAllTasks(); // all have to load again so that new can add up
     assignToMembers();
     setTimeout(() => { checkUrlShowOnNav(); }, 500)
+    showCategorys()
 }
-
 
 
 /**
@@ -28,17 +28,30 @@ async function createTask() {
     gatherInputFields();
     await saveToBackendTasks();
     deleteInformation();
-    addPopUp()
+    addAlert();
 }
 
 /* 
 *Gathers all infos from input and creates  a Task 
 */
+
+const btns = document.querySelectorAll('.dot')
+
+for (let i = 0; i < btns.length; i++) {
+    const element = btns[i];
+    element.addEventListener('click', function () {
+        color = ''
+        color = element.value
+        console.log(color);
+    })
+}
+
 function gatherInputFields() {
     let title = document.getElementById('id-title').value;
     let date = document.getElementById('id-date').value;
     let category = document.getElementById('id-category').value;
     let urgency = document.getElementById('id-urgency').value;
+    // const categorycolor = checkColor(color);
     let description = document.getElementById('id-description').value;
     let assignment = document.getElementById('id-assignment').value;
     let task = {
@@ -79,21 +92,50 @@ function clearTask() {
     document.getElementById('id-urgency').value = '';
     document.getElementById('id-description').value = '';
 }
-/**
- */
+
 function assignToMembers() {
     document.getElementById('id-assignment').innerHTML = ""; //necessary otherwise too much gets added
     for (let i = 0; i < allSignedUser.length; i++) {
         let member = allSignedUser[i];
         document.getElementById('id-assignment').innerHTML += `
                 <option id="member(${i})">${member.name}</option>
+
         `;
     }
 }
 
-function addPopUp() {
+function addAlert() {
     document.getElementById('alert').classList.remove('d-none');
-    setTimeout(() => {
-        document.getElementById('alert').classList.add('d-none');
-    }, 3000);
+
+
 }
+
+const select = document.getElementById('id-category');
+const option = document.getElementById('new-category');
+const create = document.getElementById('createCategory');
+const createContainer = document.getElementById('createContainer')
+
+
+// select.addEventListener('change', function (event) {
+//     if (event.target.value === 'addcategory') {
+//         select.classList.add('d-none')
+//         createContainer.classList.remove('d-none')
+//     }
+// })
+
+
+let categorys = ['Sales', 'Marketing', 'Development', 'Support']
+
+
+function showCategorys() {
+
+    for (let i = 0; i < categorys.length; i++) {
+        let category = categorys[i];
+        select.innerHTML += `
+        <option value="${category}">${category}</option>
+            `
+    }
+}
+
+
+

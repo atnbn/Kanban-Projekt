@@ -9,10 +9,11 @@ body {
 }
 
 .background-container {
-    background-color: #EBEDFC;
+    background-color: #fff;
     border-radius: 10px;
     padding: 7.5px 20px;
     max-width: 1000px;
+    font-size: 20px;
 }
 
 p {
@@ -35,9 +36,7 @@ h3 {
     right: -7px !important;
 }
 
-.div-position {
-    padding: 20px 30px 0px 220px;
-}
+
 
 .bg-board-help {
     display: flex;
@@ -116,15 +115,18 @@ h3 {
 }
 
 @media (max-width: 600px) {
-    .div-position {
-        padding: 10px 30px 0px 30px;
+
+    .main-content {
+        display: block !important;
+    }
+
+    .background-container {
+        font-size: 16px;
     }
 }
 
 @media (max-height: 525px) {
-    .div-position {
-        padding: 0px 30px 0px 30px;
-    }
+
 
     .font-help {
         margin-top: 20px;
@@ -133,4 +135,12 @@ h3 {
 
 .black {
     color: black;
+}
+
+
+.link {
+    color: black;
+    text-decoration: none;
+    z-index: 1;
+    cursor: pointer;
 }

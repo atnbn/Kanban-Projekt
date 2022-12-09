@@ -27,55 +27,100 @@
 </head>
 
 <body id="id-body" onload="init()">
-    <div w3-include-html="sidebar.html"></div>
+    <div class="side-box" w3-include-html="sidebar.html"></div>
 
 <div class="main-content">
- <div class="title-container">
-              <h1>Add Task</h1>
-            </div>
+    <div class="title-container">
+
+        <h1>Board</h1>
+    </div>
         <div class="flex-container">
             <div class="task-area">
-                <div class="board-discription">
-                    To do
+                <div class="category-container">
+                   <p class="category-title">To do</p>
+                </p>
+                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button> 
                 </div>
                 <div class="div-ticket" id="boardColumnToDo" ondrop="moveTo('todo')" ontouchstart="allowDrop(event)"
                     ondragover="allowDrop(event)"> </div>
             </div>
             <!-- IN PROGRESS -->
             <div class="task-area">
-                <div class="board-discription">
-                    In Progress
+                <div class="category-container">
+                    <p class="category-title">
+                        In progress
+                    </p>
+                </p>
+                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
                 </div>
                 <div class="div-ticket" id="boardColumnInProgress" ondrop="moveTo('inProgress')"
                     ondragover="allowDrop(event)" ontouchstart="allowDrop(event)"></div>
             </div>
             <!-- CODE REVIEW -->
             <div class="task-area">
-                <div class="board-discription">
-                    Code Review
-                </div>
+                <div class="category-container">
+                  <p class="category-title">
+                      Code Review
+                </p>
+                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
+            </div>
                 <div class="div-ticket" id="boardColumnCodeReview" ontouchstart="allowDrop(event)"
                     ondrop="moveTo('codeReview')" ondragover="allowDrop(event)"></div>
             </div>
             <!-- DONE -->
             <div class="task-area">
-                <div class="board-discription">
+                <div class="category-container">
+                   <p class="category-title">
                     Done
+                   </p> 
+                </p>
+                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
                 </div>
                 <div class="div-ticket" id="boardColumnDone" ontouchstart="allowDrop(event)" ondrop="moveTo('done')"
                     ondragover="allowDrop(event)"></div>
             </div>
         </div>
+        <div class="shadow-box"></div>
+
     </div>
     <div id="popup" style="display: none;">
         <div class="popup-container" id="info-box" class="div-scrollbox">
             <button class="close-btn-board" onclick="closePopup()">X</button>
-       
         </div>
     </div>
     </div>
+
     </div></div>
    
 </body>
 
 </html>
+<!-- 
+
+
+
+
+
+
+<div class="button-container">
+    <div class="arrow-containers">
+        <img onclick="moveTaskBack(${element.id})" class="move-right-img mirror" src="../img/icons8-arrow-26.png">
+            <img onclick="moveTaskToNextStage(${element.id})" class="move-right-img" src="../img/icons8-arrow-26.png">
+            </div>
+            <img onclick="deleteTask(${element.id})" class="close-img" src="../img/icons8-close-30 (2).png">
+            </div>
+            <table draggable="true" ondragstart="startDragging(${element['id']})" 
+                onclick="openPopup(${element['id']})" class="task-board">
+                <tr>
+                    <td>Title:</td>
+                    <td>${element.title}</td>
+                </tr>
+                <tr>
+                    <td>Due to:</td>
+                    <td>${element.date}</td>
+                </tr>
+                <tr>
+                    <td>Assigned to:</td>
+                    <td>${element.assignment}</td>
+                </tr>
+            </table> -->

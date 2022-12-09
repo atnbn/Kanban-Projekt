@@ -21,9 +21,9 @@ function checkUrlShowOnNav() {
   if (window.location.href.endsWith('/backlog.html')) {
     document.getElementById('link-backlog').classList.add('active')
   }
-  if (window.location.href.endsWith('/addtask.html')) {
-    document.getElementById('link-addtask').classList.add('active')
-  }
+  // if (window.location.href.endsWith('/addtask.html')) {
+  //   document.getElementById('link-addtask').classList.add('active')
+  // }
   if (window.location.href.endsWith('/help.html')) {
     document.getElementById('link-help').classList.add('active')
   }
