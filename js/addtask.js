@@ -6,7 +6,7 @@ async function init() {
     loadAllSignIns(); /* has to load before assignToMembers() */
     loadAllTasks(); // all have to load again so that new can add up
     assignToMembers();
-    setTimeout(() => { checkUrlShowOnNav(); }, 500)
+    // setTimeout(() => { checkUrlShowOnNav(); }, 500)
     showCategorys()
 }
 
@@ -105,12 +105,20 @@ function assignToMembers() {
 }
 
 function addAlert() {
-    document.getElementById('alert').classList.remove('d-none');
+    let alert = document.getElementById('alert')
+    alert.classList.add('animate-alert');
+
+
+    console.log('remove');
+
+    setTimeout(() => {
+        alert.classList.remove('animate-alert');
+        alert.classList.add('reverse-alert');
+    }, 2000);
 
 
 }
 
-const select = document.getElementById('id-category');
 const option = document.getElementById('new-category');
 const create = document.getElementById('createCategory');
 const createContainer = document.getElementById('createContainer')
@@ -128,6 +136,7 @@ let categorys = ['Sales', 'Marketing', 'Development', 'Support']
 
 
 function showCategorys() {
+    let select = document.getElementById('id-category');
 
     for (let i = 0; i < categorys.length; i++) {
         let category = categorys[i];

@@ -153,6 +153,13 @@ body {
     right: -7px !important;
 }
 
+
+
+
+
+
+
+
 .alert {
     max-width: 400px;
     min-width: 150px;
@@ -168,6 +175,11 @@ body {
     animation: alert 0.3s linear;
 
 }
+
+
+
+
+
 
 @keyframes alert {
 
@@ -213,7 +225,15 @@ body {
     .members-list {
         overflow-x: auto;
     }
+
+    .task-row {
+        margin-top: 30rem;
+    }
 }
+
+@media (max-height: 800px) {}
+
+
 
 @media (max-width: 800px) {
     .history {
@@ -244,7 +264,6 @@ body {
     .break {
         word-break: break-all;
     }
-
 }
 
 @media (max-width: 750px) {

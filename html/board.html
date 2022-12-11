@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +11,8 @@
     <link rel="stylesheet" href="../css/sidebarcss.css">
     <link rel="stylesheet" href="../css/board.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/new-addtask.css">
     <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
     <!-- JS -->
     <script src="../js/sidebar.js"></script>
     <script src="../js/board.js"></script>
@@ -25,13 +20,10 @@
     <script src="../js/mini_backend.js"></script>
     <script src="../js/script.js"></script>
 </head>
-
 <body id="id-body" onload="init()">
     <div class="side-box" w3-include-html="sidebar.html"></div>
-
 <div class="main-content">
-    <div class="title-container">
-
+    <div class="title-containers">
         <h1>Board</h1>
     </div>
         <div class="flex-container">
@@ -39,7 +31,8 @@
                 <div class="category-container">
                    <p class="category-title">To do</p>
                 </p>
-                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button> 
+                <button onclick="openNewTask()"
+                id="task-btn" class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg"></button> 
                 </div>
                 <div class="div-ticket" id="boardColumnToDo" ondrop="moveTo('todo')" ontouchstart="allowDrop(event)"
                     ondragover="allowDrop(event)"> </div>
@@ -51,7 +44,7 @@
                         In progress
                     </p>
                 </p>
-                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
+                <button id="task-btn"  onclick="openNewTask()" class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
                 </div>
                 <div class="div-ticket" id="boardColumnInProgress" ondrop="moveTo('inProgress')"
                     ondragover="allowDrop(event)" ontouchstart="allowDrop(event)"></div>
@@ -60,9 +53,9 @@
             <div class="task-area">
                 <div class="category-container">
                   <p class="category-title">
-                      Code Review
+                      Awaiting Feedback
                 </p>
-                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
+                <button  id="task-btn" onclick="openNewTask()" class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
             </div>
                 <div class="div-ticket" id="boardColumnCodeReview" ontouchstart="allowDrop(event)"
                     ondrop="moveTo('codeReview')" ondragover="allowDrop(event)"></div>
@@ -74,7 +67,7 @@
                     Done
                    </p> 
                 </p>
-                <button class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
+                <button id="task-btn" onclick="openNewTask()" class="add-btn"><img class="add-btn-img" src="../img/board/plus icon.svg" alt=""></button>
                 </div>
                 <div class="div-ticket" id="boardColumnDone" ontouchstart="allowDrop(event)" ondrop="moveTo('done')"
                     ondragover="allowDrop(event)"></div>
@@ -89,8 +82,8 @@
         </div>
     </div>
     </div>
-
-    </div></div>
+    </div>
+</div>
    
 </body>
 

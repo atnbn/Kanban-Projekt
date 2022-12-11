@@ -1,3 +1,3 @@
-async function init() {
-    setTimeout( ()=> checkUrlShowOnNav() , 50)
-}
+// async function init() {
+//     setTimeout( ()=> checkUrlShowOnNav() , 50)
+// }

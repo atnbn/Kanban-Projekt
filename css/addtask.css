@@ -184,42 +184,123 @@ form {
 
     border-radius: 10px;
     font-weight: 600;
-    animation: alert 0.3s linear;
-
+    display: flex;
     z-index: 41;
     background: var(--darkgray);
     color: white;
     padding: 7px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
     border-radius: 10px;
     font-weight: 600;
-    animation: alert 0.3s linear;
+    ;
 
+}
+
+.animate-alert {
+    animation: alert 0.8s;
+    animation-fill-mode: forwards
+}
+
+.alert-container {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 40;
+    top: 10px;
+}
+
+
+.absolute {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 100px;
+
+}
+
+.reverse-alert {
+    animation: reverse-alert 0.3s linear;
 }
 
 @keyframes alert {
 
     0% {
-        transform: translateX(0%) translateY(-100%);
-        opacity: 1;
+        /* transform: translateX(0%) translateY(-100%); */
+        opacity: 0;
     }
 
-    50% {
-        transform: translateX(0%) translateY(-50%);
-        opacity: 1;
+    20% {
+        /* transform: translateX(0%) translateY(-50%); */
+        opacity: 0.2;
+    }
+
+    40% {
+        /* transform: translateX(0%) translateY(-50%); */
+        opacity: 0.4;
+    }
+
+    60% {
+        /* transform: translateX(0%) translateY(-50%); */
+        opacity: 0.6;
+    }
+
+    80% {
+        /* transform: translateX(0%) translateY(-50%); */
+        opacity: 0.8;
     }
 
     100% {
-        transform: translateX(0%) translateY(0%);
+        opacity: 1;
+
     }
 
 }
 
 
 
+@keyframes reverse-alert {
+
+    0% {
+        /* transform: translateX(0%) translateY(-100%); */
+        opacity: 1;
+
+    }
+
+    20% {
+        /* transform: translateX(0%) translateY(-50%); */
+        opacity: 0.8;
+
+
+    }
+
+    40% {
+        /* transform: translateX(0%) translateY(-50%); */
+
+        opacity: 0.6;
+
+    }
+
+    60% {
+        opacity: 0.4;
+
+        /* transform: translateX(0%) translateY(-50%); */
+    }
+
+    80% {
+        opacity: 0.2;
+
+        /* transform: translateX(0%) translateY(-50%); */
+    }
+
+    100% {
+        opacity: 0;
+
+    }
+
+}
 
 
 
@@ -230,14 +311,15 @@ form {
 
 
 
+.main-content {
+    position: relative;
+}
 
 
 
 
 
-
-
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     .div-flex {
         display: flex;
         flex-direction: column;
@@ -280,6 +362,7 @@ form {
     }
 }
 
+/* 
 @media (max-width: 425px) {
     .div-createOrCancel {
         display: flex;
@@ -315,7 +398,7 @@ form {
         margin-right: 0px;
     }
 
-}
+} */
 
 .dot {
     width: 15px;

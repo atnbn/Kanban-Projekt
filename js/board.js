@@ -4,8 +4,10 @@ async function init() {
     includeHTML();
     await downloadFromServer(); //necessary to use "allTasks"
     loadAllTasks(); //necessary to use "allTasks"
-    setTimeout(() => { checkUrlShowOnNav(); }, 50)
+    loadAllSignIns()
+    // setTimeout(() => { checkUrlShowOnNav(); }, 50)
     updateHTML();
+
     // canvasInfo = canvas.getBoundingClientRect();
 }
 
@@ -103,6 +105,7 @@ async function deleteTask(id) {
     allTasks.splice(pos, 1)
     await saveToBackendTasks();
     updateHTML();
+    closePopup();
 }
 // is collecting the id from the task and opens it in a bigger window 
 function openPopup(id) {
@@ -162,16 +165,16 @@ async function moveTaskBack(id) {
     updateHTML();
 }
 
-function removeResponsivMenu() {
-    document.getElementById('id-sidebarFullscreen').style.display = 'none';
+
+function closeEdit() {
+    document.getElementById('popup').style.display = 'none';
 }
-/*
-*contains the html content for the Popup
-*/
+
 function loadPopUpContent(pos) {
     return `
         <div class="info-container">
-            <button class="close-button" onclick="closePopup()">X</button>
+        <button id="closeBtn" class="close-btn" onclick="closeEdit()"> <img src="../img/addTask/cross.svg"> </button>
+        </div>
             <div class="info-header">
                 <p class="info-text">Name:</p>
                 <span class="info-text">${allTasks[pos].assignment}</span>
@@ -200,8 +203,10 @@ function loadPopUpContent(pos) {
                 <textarea class="info-area" type="text" id="description${pos}">${allTasks[pos].description}</textarea>
             </div>
             <div class="info-button__container">
-                <button class="save-button" onclick="updateUser(${pos})">Save</button>
+            <button   class="delete-btn" onclick="deleteTask(${pos})">Delete Task</button>
+            <button class="save-button" onclick="updateUser(${pos})">Save</button>
             </div>
+     
         </div>
         `
 }
@@ -223,9 +228,130 @@ function generateHtmlTask(element) {
         <span class="user">${element.assignment}</span>
         <span class="urgency">${element.urgency}</span>
         </div>
+       
+       `
+}
 
-        </div>`
+
+function openNewTask() {
+    let popup = document.getElementById('popup');
+    popup.style.display = 'flex';
+    popup.innerHTML = createNewsTaskPopUp();
+    assignToMembers()
+    showCategorys()
+}
+
+function closeNewTask() {
+    let popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+
+function createNewsTaskPopUp() {
+    return `
+    <div class="form-container">
+    
+      <div class="left-form">
+      <button id="closeBtn" class="close-btn" onclick="closeEdit()"> <img src="../img/addTask/cross.svg"> </button>
+        <label class="labels" for="title">Ttiel</label>
+        <input placeholder="Enter a title" type="text" id="id-title" />
+        <div class="column">
+          <label class="labels pb" for="description">Description</label>
+          <textarea
+            class=""
+            placeholder="Enter a Description"
+            type="text"
+            id="id-description"
+          ></textarea>
+        </div>
+        <label for="category">Category</label>
+        <select id="id-category" required>
+          <option hidden selected value="">
+            Select task category...
+          </option>
+        </select>
+        <label>Assigned to</label>
+      <select id="id-assignment" required>
+        <option hidden selected value="">
+    })}
+        </option>
+      </select>
+    </div>
+    <div class="middle-line"></div>
+    <div class="right-form">
+      <label class="labels" for="date">Due date</label>
+      <input id="id-date" type="date"   required/>
+      <label class="labels" for="Prio">Prio</label>
+      <div class="input-container">
+        <select id="id-urgency" required>
+          <option hidden selected value="">
+            Please select an urgency...
+          </option>
+          <option>Low</option>
+          <option>Middle</option>
+          <option>High</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <div class="input-container">
+          <img class="icon cross-icon" src="../img/addtask/cross.svg" />
+          <button id="clear-btn" class="clear">Clear</button>
+        </div>
+        <div class="input-container">
+          <img class="icon arrow-icon" src="../img/addtask/arrow.svg" />
+          <button id="create-btn" onclick="createTask()" class="createtask">Create task</button>
+        </div>
+      </div>
+    </div>
+  `}
+
+
+function assignToMembers() {
+    document.getElementById('id-assignment').innerHTML = ""; //necessary otherwise too much gets added
+    for (let i = 0; i < allSignedUser.length; i++) {
+        let member = allSignedUser[i];
+        document.getElementById('id-assignment').innerHTML += `
+                <option id="member(${i})">${member.name}</option>
+
+        `;
+    }
+}
+
+
+let categorys = ['Sales', 'Marketing', 'Development', 'Support']
+
+
+function showCategorys() {
+    const select = document.getElementById('id-category');
+
+    for (let i = 0; i < categorys.length; i++) {
+        let category = categorys[i];
+        select.innerHTML += `
+        <option value="${category}">${category}</option>
+            `
+    }
+}
+
+function createTask() {
+    let title = document.getElementById('id-title').value;
+    let description = document.getElementById('id-description').value;
+    let category = document.getElementById('id-category').value;
+    let assignment = document.getElementById('id-assignment').value;
+    let date = document.getElementById('id-date').value;
+    let urgency = document.getElementById('id-urgency').value;
+    let task = { title, description, category, assignment, date, urgency, board: 'todo', status: 'active' }
+    allTasks.push(task);
+    saveToBackendTasks();
+    closeNewTask();
+    updateHTML();
+
+
 }
 
 
 
+document.addEventListener('keydown', function (e) {
+    const popup = document.getElementById('popup')
+    if (e.key === 'Escape') {
+        popup.style.display = 'none';
+    }
+})

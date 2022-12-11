@@ -12,13 +12,8 @@
     <link rel="stylesheet" href="../css/sidebarcss.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/new-addtask.css" />
-    <!-- FONT 'PT SANS' -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- FONT -->
+    
 
     <!-- JS -->
     <script src="../js/sidebar.js"></script>
@@ -29,6 +24,10 @@
   </head>
 
   <body id="id-body" onload="init()">
+    <div class="alert-container"> 
+      <div id="alert" class="alert">YOUR TASK HAS BEEN ADDED</div>
+    </div>
+
     <div class="side-box" w3-include-html="sidebar.html"></div>
     <!-- 
     <img
@@ -40,7 +39,7 @@
     /> -->
 
     <div class="main-content">
-      <section class="margin">
+      <div class="margin">
         <div class="title-container">
           <h1>Add Task</h1>
         </div>
@@ -66,33 +65,8 @@
                 <option hidden selected value="">
                   Select task category...
                 </option>
-                <!-- <option value="addcategory" id="new-category">New Category</option> -->
-                <!-- <option>Sales</option>
-              <option>Backoffice</option>
-              <option>Marketing</option> -->
               </select>
-              <!-- Create new Category -->
-              <!-- <div class="create-category-container">
-                <input type="text" id="createInput" />
-                <button class="btn-category" onclick="createNewCategory()">
-                  <img
-                    class="btn-img-category"
-                    src="../img/addtask/plus-icon.svg"
-                  />
-                </button>
-              </div> -->
-              <!-- <div class="dot-container">
-                <button id="dot-1" value="#FC71FF" class="dot pink"></button>
-                <button id="dot-2" value="#1FD7C1" class="dot green"></button>
-                <button id="dot-3" value="#FF7A00" class="dot orange"></button>
-                <button id="dot-4" value="#0038FF" class="dot blue"></button>
-                <button
-                  id="dot-5"
-                  value="rgb(0, 100, 150)"
-                  class="dot bluelight"
-                ></button>
-              </div> -->
-            <label>Assigned to</label>
+              <label>Assigned to</label>
             <select id="id-assignment" required>
               <option hidden selected value="">
                 Select contacts to assign...
@@ -102,7 +76,6 @@
           <div class="middle-line"></div>
           <div class="right-form">
             <label class="labels" for="date">Due date</label>
-            <!-- <img class="icon-date icon" src="../img/addtask/calender-icon.svg"  /> -->
             <input id="id-date" type="date" />
             <label class="labels" for="Prio">Prio</label>
             <div class="input-container">
@@ -115,16 +88,6 @@
                 <option>High</option>
               </select>
             </div>
-            <!-- '  <div class="input-container"> 
-                <label for="subtasks">Subtasks</label>
-                <img class="icon-date icon" src="../img/addtask/plus-icon.svg">
-                <input type="text" placeholder="Add new subtask">
-              </div>
-              <div class="checkbox-container">
-                <input class="checkbox" type="checkbox">
-                <span> Subtask 1</span>
-              </div>' -->
-            <!-- Buttons -->
             <div class="button-container">
               <div class="input-container">
                 <img class="icon cross-icon" src="../img/addtask/cross.svg" />
@@ -137,13 +100,9 @@
             </div>
           </div>
         </form>
-      </section>
+      </div>
       <div class="shadow-box"></div>
     </div>
-    <div id="alert" class="alert d-none">YOUR TASK HAS BEEN ADDED</div>
-
-    <!-- <button style="position:absolute; top:0; right:50%;" onclick="loadAnimation()">LOAD ANIMATION</button> -->
-    <!-- New section  -->
     <script src="../js/addtask.js"></script>
   </body>
 </html>

@@ -152,14 +152,16 @@ header {
     display: block;
 }
  */
-
-
 .d-block {
     display: block;
 }
 
 .logout {
     cursor: pointer;
+}
+
+.smaller-icon {
+    height: 25.5px;
 }
 
 @media (max-width: 1250px) {

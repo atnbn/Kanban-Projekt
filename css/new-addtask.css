@@ -21,10 +21,10 @@ input, select {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 13px 21px;
     gap: 10px;
-    width: 300px;
-    height: 5px;
+    /* width: 300px; */
+    height: 30px;
+    padding-left: 15px;
     background: #FFFFFF;
     /* Style */
     border: 1px solid #D1D1D1;
@@ -260,7 +260,16 @@ form {
 
 
 
-
+.delete-button {
+    background-color: none;
+    border: none;
+    background: none;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
 
 @media(max-width: 850px) {
     .form-container {
@@ -286,10 +295,6 @@ form {
         display: none;
     }
 
-    .main-content {
-        display: flex;
-        align-items: center;
-    }
 
 
 
@@ -346,8 +351,6 @@ form {
     .form-container {
         gap: 10px;
     }
-
-
 }
 
 

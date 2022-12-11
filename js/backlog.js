@@ -9,7 +9,7 @@ async function init() {
     loadAllTasks();
     filterTasks()
     showTaskContent();
-    setTimeout(() => { checkUrlShowOnNav(); }, 50)
+    // setTimeout(() => { checkUrlShowOnNav(); }, 50)
     checkIfTaskIsActive()
 }
 
@@ -37,9 +37,6 @@ function filterTasks() {
     inactiveTasks = allTasks.filter(task => task?.status === 'inactiv')
 }
 
-function showTasks() {
-    showTaskContent();
-}
 
 async function showTaskinBoard(taskID) {
     let task = allTasks.find(t => t.id === taskID);

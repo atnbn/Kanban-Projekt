@@ -49,7 +49,6 @@ async function signInBackend() {
         'name': name,
         'email': email,
         'password': password
-        // 'img' : img
     }
 
     allSignedUser.push(signedUser);
